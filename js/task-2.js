@@ -26,14 +26,13 @@ const images = [
 ];
 
 const gallery = document.querySelector(".gallery");
+let markup = "";
 
-images.forEach((image) => {
-  const li = document.createElement("li");
-  const img = document.createElement("img");
-
-  img.src = image.url;
-  img.alt = image.alt;
-
-  li.append(img);
-  gallery.append(li);
+images.forEach(({ url, alt }) => {
+  markup += `<li>
+  <img src="${url}" alt="${alt}"> 
+  </li>
+  `;
 });
+
+gallery.insertAdjacentHTML("beforeend", markup);
